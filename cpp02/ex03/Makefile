@@ -2,13 +2,14 @@ NAME		=	fixed
 
 SRCDIR		=	srcs
 SRCS		=	main.cpp \
-				Fixed.cpp
+				Fixed.cpp \
+				Point.cpp
 OBJDIR		=	objs
 OBJS		=	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 INCLUDES	=	includes
 
 CC			=	clang++
-FLAGS		=	-Wall -Werror -Wextra -pedantic -I $(INCLUDES) -std=c++98 
+FLAGS		=	-Wall -Wextra -g -pedantic -I $(INCLUDES) -std=c++98 
 
 all:		$(NAME)
 $(NAME):	$(OBJDIR) $(OBJS)
@@ -18,7 +19,10 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@$(CC) $(FLAGS) -c $< -o $@
 
 run: all
-	./$(NAME)
+	./$(NAME) $(ARGS)
+
+drun: all
+	lldb $(NAME) $(ARGS)
 	
 $(OBJDIR):
 	@mkdir -p $(OBJDIR)

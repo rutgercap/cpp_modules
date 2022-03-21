@@ -8,18 +8,18 @@ OBJS		=	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 INCLUDES	=	includes
 
 CC			=	clang++
-FLAGS		=	-Wall -Werror -g -pedantic -I $(INCLUDES) -std=c++98 
+FLAGS		=	-Wall -Werror -Wextra -pedantic -I $(INCLUDES) -std=c++98 
 
 all:		$(NAME)
 $(NAME):	$(OBJS)
-	$(CC) ${FLAGS} ${OBJS}  -o ${NAME}
+	$(CC) $(FLAGS) $(OBJS)  -o $(NAME)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@mkdir -p $(OBJDIR)
 	@$(CC) $(FLAGS) -c $< -o $@
 
 run: all
-	./$(NAME) $(ARGS)
+	./$(NAME)
 
 clean:
 	rm -r $(OBJDIR)

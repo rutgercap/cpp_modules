@@ -18,7 +18,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@$(CC) $(FLAGS) -c $< -o $@
 
 run: all
-	./$(NAME)
+	./$(NAME) 
 	
 $(OBJDIR):
 	@mkdir -p $(OBJDIR)
