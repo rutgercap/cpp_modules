@@ -1,16 +1,15 @@
 #include "HumanB.hpp"
 #include <iostream>
-;
 
-HumanB::HumanB(const string name): _name(name) {
+HumanB::HumanB(const std::string name): _name(name) {
 	return ;
 }
 
-void	HumanB::setName(const string name)  {
+void	HumanB::setName(const std::string name)  {
 	this->_name = name;
 }
 
-string	HumanB::getName(void) {
+std::string	HumanB::getName(void) {
 	return this->_name;
 }
 

@@ -2,17 +2,16 @@
 # define WEAPON
 
 # include <string>
-using	std::string;
 
 
 class Weapon {
 	private:
-		string _type;
+		std::string _type;
 
 	public:
-		Weapon(string type);
-		const string&	getType(void);
-		void    		setType(string type);
+		Weapon(std::string type);
+		const std::string&	getType(void);
+		void    		setType(std::string type);
 };
 
 #endif

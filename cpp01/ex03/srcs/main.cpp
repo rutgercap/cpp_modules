@@ -2,9 +2,6 @@
 #include "HumanB.hpp"
 #include <iostream>
 
-;
-;
-
 void	mytest(void)
 {
 		Weapon	club = Weapon("Hamer");

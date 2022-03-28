@@ -1,9 +1,6 @@
 #include "Zombie.hpp"
 #include <iostream>
 
-;
-;
-
 Zombie::Zombie(std::string name) {
     this->_name = name;
 }

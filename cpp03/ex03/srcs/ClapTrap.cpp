@@ -16,6 +16,13 @@ ClapTrap::ClapTrap(std::string const &name):
 	std::cout << "has been created!" << std::endl;
 }
 
+ClapTrap &ClapTrap::operator=(const ClapTrap &original) {
+	if (this != &original) {
+		*this = original;
+	}
+	return *this;
+}
+
 ClapTrap::~ClapTrap() {
 	announceClapTrap(_name);
 	std::cout << "died!" << std::endl;

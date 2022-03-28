@@ -1,6 +1,6 @@
 #include "Replacer.hpp"
 
-Replacer::Replacer(string filepath, string s1, string s2): \
+Replacer::Replacer(std::string filepath, std::string s1, std::string s2): \
 				_filepath(filepath), _s1(s1), _s2(s2) {
 	this->_filename = filepath.append(".replace");
 }
@@ -23,13 +23,13 @@ int	Replacer::openOutFile(void) {
 	return 0;
 }
 
-void	Replacer::_writeLine(string line) {
+void	Replacer::_writeLine(std::string line) {
 	_outfile.write(&line[0], line.length());
 	_outfile.write("\n", 1);
 }
 
-string	Replacer::_replacePiece(string line, int i) {
-	string	newLine;
+std::string	Replacer::_replacePiece(std::string line, int i) {
+	std::string	newLine;
 
 	newLine = line.substr(0, i);
 	newLine.append(_s2);
@@ -37,7 +37,7 @@ string	Replacer::_replacePiece(string line, int i) {
 	return newLine;
 }
 
-void	Replacer::_findInLine(string line) {
+void	Replacer::_findInLine(std::string line) {
 	int i = 0;
 
 	while (true) {
@@ -52,7 +52,7 @@ void	Replacer::_findInLine(string line) {
 }
 
 void	Replacer::replaceText(void) {
-	string	line;
+	std::string	line;
 
 	while (std::getline(this->_infile, line)) {
 		this->_findInLine(line);

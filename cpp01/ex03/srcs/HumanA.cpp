@@ -1,16 +1,15 @@
 #include "HumanA.hpp"
 #include <iostream>
-;
 
-HumanA::HumanA (const string name, Weapon& weapon): _name(name), _weapon(weapon) {
+HumanA::HumanA (const std::string name, Weapon& weapon): _name(name), _weapon(weapon) {
 	return ;
 }
 
-void	HumanA::setName(string name) {
+void	HumanA::setName(std::string name) {
 	this->_name = name;
 }
 
-string	HumanA::getName(void) {
+std::string	HumanA::getName(void) {
 	return this->_name;
 }
 

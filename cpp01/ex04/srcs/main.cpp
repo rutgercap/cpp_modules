@@ -2,9 +2,7 @@
 #include <iostream>
 #include <fstream>
 
-using std::string;
-
-int	input_check(string s1, string s2) {
+int	input_check(std::string s1, std::string s2) {
 	if (s1.length() == 0 || s2.length() == 0) {
 		std::cout << "Strings cannot be empty" << std::endl;
 		return 1;
@@ -12,7 +10,7 @@ int	input_check(string s1, string s2) {
 	return 0;
 }
 
-int	replace(string filepath, string s1, string s2) {
+int	replace(std::string filepath, std::string s1, std::string s2) {
 	Replacer	replacer(filepath, s1, s2);
 
 	if (replacer.openInFile() || replacer.openOutFile())
