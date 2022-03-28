@@ -1,14 +1,18 @@
-NAME		=	claptrap
+NAME		=	poly
 
 SRCDIR		=	srcs
 SRCS		=	main.cpp \
-				ClapTrap.cpp
+				Animal.cpp \
+				Cat.cpp \
+				Dog.cpp \
+				Brain.cpp \
+
 OBJDIR		=	objs
 OBJS		=	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 INCLUDES	=	includes
 
 CC			=	clang++
-FLAGS		=	-Wall -Werror -Wextra -pedantic -I $(INCLUDES) -std=c++98 
+FLAGS		=	-Wall -Wextra -Wno-shadow -pedantic -I $(INCLUDES) -std=c++98 
 
 all:		$(NAME)
 $(NAME):	$(OBJS)
@@ -25,7 +29,6 @@ clean:
 	rm -r $(OBJDIR)
 
 fclean: clean
-	rm $(NAME)
 
 re: fclean all
 

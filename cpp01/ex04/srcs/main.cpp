@@ -2,8 +2,6 @@
 #include <iostream>
 #include <fstream>
 
-;
-;
 using std::string;
 
 int	input_check(string s1, string s2) {

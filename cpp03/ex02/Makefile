@@ -2,7 +2,9 @@ NAME		=	claptrap
 
 SRCDIR		=	srcs
 SRCS		=	main.cpp \
-				ClapTrap.cpp
+				ClapTrap.cpp \
+				ScavTrap.cpp \
+				FragTrap.cpp
 OBJDIR		=	objs
 OBJS		=	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 INCLUDES	=	includes

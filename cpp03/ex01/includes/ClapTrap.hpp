@@ -1,18 +1,18 @@
 #ifndef CLAPTRAP_H
 # define CLAPTRAP_H
 
-#include <string>
-#include <iostream>
+# include <string>
+# include <iostream>
 
 class ClapTrap {
 	public:
-		ClapTrap	(std::string const &name);
+		ClapTrap	(std::string const &name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage);
 		~ClapTrap	();
 		void		attack(std::string const &target);
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
 
-	private:
+	protected:
 		std::string	_name;
 		int			_hitpoints;
 		int			_energyPoints;
