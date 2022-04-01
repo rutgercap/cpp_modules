@@ -1,12 +1,15 @@
 #include <Animal.hpp>
 #include <iostream>
 
-
 /*
 	Constructors and destructors
 */
 Animal::Animal(std::string const &type): _type(type) {
     std::cout << "Animal constructor called" << std::endl;
+}
+
+Animal::Animal(Animal const &animal): _type(animal.getType()) {
+    std::cout << "Animal copy constructor called" << std::endl;
 }
 
 Animal::Animal(): _type("Nothing") {
@@ -21,6 +24,7 @@ Animal::~Animal() {
 	Operators
 */
 Animal &Animal::operator=(const Animal &animal) {
+	std::cout << "Animal operator called" << std::endl;
 	(void)animal;
 	return *this;
 }

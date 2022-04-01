@@ -7,10 +7,11 @@
 class Animal {
 	public:
 		Animal(std::string const &type);
+		Animal(const Animal &animal);
 		Animal();
 		virtual ~Animal();
 		
-		virtual Animal & operator = (const Animal &animal);
+		virtual Animal &operator=(const Animal &animal);
 
 		virtual void makeSound() const;
 		virtual Brain *getBrain() const;

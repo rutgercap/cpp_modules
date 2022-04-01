@@ -9,7 +9,6 @@ void	standardTests() {
 
 	delete j;
     delete i;
-	std::cout << std::endl << std::endl << std::endl;
 }
 
 void	loopTest() {
@@ -29,7 +28,6 @@ void	loopTest() {
 		std::cout << "Deleting animal " << i << ":" << std::endl;
 		delete(array[i]);
 	}
-	std::cout << std::endl << std::endl << std::endl;
 }
 
 void	copyTest() {
@@ -38,8 +36,8 @@ void	copyTest() {
 	Animal*	second = new Dog();
 
 	first->getBrain()->setIdea(0, "Woof");
-	second = first;
-	first->getBrain()->setIdea(0, "Stop Woof");
+	*second = *first;
+	first->getBrain()->setIdea(0, "Other Woof");
 	std::cout << "First idea: " << first->getBrain()->getIdea(0) << std::endl;
 	std::cout << "Second idea: " << second->getBrain()->getIdea(0) << std::endl;
 
@@ -49,7 +47,9 @@ void	copyTest() {
 
 int main(void) {
 	standardTests();
+	std::cout << std::endl << std::endl << std::endl;
 	loopTest();
+	std::cout << std::endl << std::endl << std::endl;
 	copyTest();
 	// system("leaks poly");
 }

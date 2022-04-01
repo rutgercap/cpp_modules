@@ -8,6 +8,10 @@ Dog::Dog(): Animal("Dog"), _brain(new Brain()) {
 	std::cout << "Dog constructor called" << std::endl;
 }
 
+Dog::Dog(const Dog &dog): Animal(dog.getType()), _brain(new Brain(*dog.getBrain())) {
+	std::cout << "Dog copy constructor called" << std::endl;
+}
+
 Dog::~Dog() {
     std::cout << "Dog destructor called" << std::endl;
 	delete _brain;
@@ -17,7 +21,18 @@ Dog::~Dog() {
 	Operators
 */
 Dog &Dog::operator=(const Dog &dog) {
-	getBrain()->copyBrain(*dog.getBrain());
+	std::cout << "Dog operator called" << std::endl;
+	if (this != &dog) {
+		_brain = dog._brain;
+	}
+	return *this;
+}
+
+Animal &Dog::operator=(const Animal &animal) {
+	std::cout << "Dog operator called" << std::endl;
+	if (this != &animal) {
+		this->getBrain()->copyIdeas(*animal.getBrain());
+	}
 	return *this;
 }
 
@@ -34,4 +49,3 @@ Brain	*Dog::getBrain() const {
 void    Dog::makeSound() const {
 	std::cout << "Woof." << std::endl;
 }
-

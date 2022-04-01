@@ -8,8 +8,24 @@ Brain::Brain() {
 	std::cout << "Brain constructor called" << std::endl;
 }
 
+Brain::Brain(Brain const &brain) {
+	std::cout << "Brain copy constructor called" << std::endl;
+	copyIdeas(brain);
+}
+
 Brain::~Brain() {
 	std::cout << "Brain destructor called" << std::endl;
+}
+
+/*
+	Operators
+*/
+Brain &Brain::operator=(const Brain &brain) {
+	std::cout << "copy operator called" << std::endl;
+	if (this != &brain) {
+		copyIdeas(brain);
+	}
+	return *this;
 }
 
 /*
@@ -24,29 +40,17 @@ std::string const Brain::getIdea(const int index) const {
 }
 
 void	Brain::setIdea(const int index, std::string idea) {
-	if (index >= 100) {
+	if (index < 0 || index >= 100) {
 		return ;
 	}
-	if (_ideas[index].length() != 0) {
-		_ideas[index].clear();
-	}
-	_ideas[index].copy(idea.c_str(), 0, idea.length());
-}
-
-/*
-	Operators
-*/
-Brain &Brain::operator=(const Brain &brain) {
-	if (this != &brain) {
-		copyBrain(brain);
-	}
-	return *this;
+	_ideas[index].clear();
+	_ideas[index] = idea;
 }
 
 /*
 	Other functions
 */
-void	Brain::copyBrain(const Brain &brain) {
+void	Brain::copyIdeas(const Brain &brain) {
 	for (int i = 0; i < 100; i++) {
 		setIdea(i, brain.getIdea(i));
 	}
