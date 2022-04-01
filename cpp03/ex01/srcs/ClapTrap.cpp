@@ -10,9 +10,19 @@ ClapTrap::ClapTrap(std::string const &name, unsigned int hitPoints, unsigned int
 	std::cout << "has been created!" << std::endl;
 }
 
+ClapTrap::ClapTrap():
+	_name("nothing"), _hitpoints(10), _energyPoints(10), _attackDamage(10) {
+}
+
 ClapTrap::~ClapTrap() {
 	announceClapTrap(_name);
 	std::cout << "died!" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &to_copy) {
+	if (this != &to_copy) {
+		*this = to_copy;
+	}
 }
 
 void	ClapTrap::attack(std:: string const &target) {

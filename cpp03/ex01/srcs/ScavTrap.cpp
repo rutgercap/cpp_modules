@@ -4,6 +4,10 @@ void	announceScavtrap(std::string const &name) {
 	std::cout << "Scavtrap " << name << " ";
 }
 
+ScavTrap::ScavTrap(): ClapTrap() {
+}
+
+
 ScavTrap::ScavTrap(std::string const &name): ClapTrap(name, 100, 50, 20) {
 	announceScavtrap(_name);
 	std::cout << "has been created!" << std::endl;
@@ -12,6 +16,12 @@ ScavTrap::ScavTrap(std::string const &name): ClapTrap(name, 100, 50, 20) {
 ScavTrap::~ScavTrap() {
 	announceScavtrap(_name);
 	std::cout << "died!" << std::endl;
+}
+
+ScavTrap::ScavTrap(const ScavTrap &to_copy) {
+	if (this != &to_copy) {
+		*this = to_copy;
+	}
 }
 
 void	ScavTrap::attack(std::string const &target) {

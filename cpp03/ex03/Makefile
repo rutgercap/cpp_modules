@@ -1,4 +1,4 @@
-NAME		=	aptrap
+NAME		=	claptrap
 
 SRCDIR		=	srcs
 SRCS		=	main.cpp \
