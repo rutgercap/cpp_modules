@@ -76,6 +76,10 @@ void Form::beSigned(Bureaucrat const &bc) {
 	}
 }
 
+void Form::execute(Bureaucrat const &bc) const {
+
+}
+
 /* Throws exception if grade is too high or too low */
 int	Form::gradePipe(int const newGrade) {
 	if (newGrade > 150) {
@@ -84,4 +88,8 @@ int	Form::gradePipe(int const newGrade) {
 		throw Form::GradeTooHighException();
 	}
 	return newGrade;
+}
+
+void Form::actionCheck() {
+	
 }

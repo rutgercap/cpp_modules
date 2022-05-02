@@ -21,7 +21,10 @@ class Form {
 		int getExecGrade() const;
 		bool isSigned() const;
 
-		void beSigned(Bureaucrat const &bc);
+		virtual void beSigned(Bureaucrat const &bc);
+		virtual void execute(Bureaucrat const & executor) const = 0;
+		void	actionCheck() const;
+		virtual void action() const;
 
 		/* Highest grade is 1 for some reason */
 		class GradeTooHighException: public std::exception {
