@@ -1,11 +1,12 @@
 #include "Harl.hpp"
+#include <iostream>
 
-int main(void) {
+int main(int argc, char **argv) {
 	Harl	harl;
 
-	harl.harlFilter("test");
-	harl.harlFilter("INFO");
-	// harl.harlFilter("ERROR");
-	// harl.harlFilter("INFO");
-	// harl.harlFilter("WARNING");
+	if (argc != 2) {
+		std::cout << "Usage: ./harl <level>" << std::endl;
+		return 1;
+	}
+	harl.harlFilter(argv[1]);
 }
