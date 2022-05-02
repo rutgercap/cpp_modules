@@ -8,10 +8,18 @@ int main(void) {
 
 	std::cout << firstForm << std::endl;
 	std::cout << secondForm << std::endl;
-	firstForm.beSigned(barrie);
+	try {
+		firstForm.beSigned(barrie);
+	} catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << firstForm << std::endl;
 	barrie.decrementGrade();
-	secondForm.beSigned(barrie);
+	try {
+		secondForm.beSigned(barrie);
+	} catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << secondForm << std::endl;
 	// system("leaks bureaucrat");
 }

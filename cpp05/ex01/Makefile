@@ -23,6 +23,9 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 run: all
 	./$(NAME) $(ARGS)
 
+drun: all
+	lldb $(NAME)
+
 clean:
 	rm -r $(OBJDIR)
 

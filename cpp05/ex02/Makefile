@@ -5,7 +5,7 @@ SRCS		=	main.cpp \
 				Form.cpp \
 				PresidentialPardonForm.cpp \
 				ShrubberyCreationForm.cpp \
-				Form.cpp \
+				RobotomyRequestForm.cpp \
 				Bureaucrat.cpp \
 
 OBJDIR		=	objs
@@ -24,7 +24,10 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@$(CC) $(FLAGS) -c $< -o $@
 
 run: all
-	./$(NAME) $(ARGS)
+	./$(NAME)
+
+drun: all
+	lldb $(NAME)
 
 clean:
 	rm -r $(OBJDIR)

@@ -18,19 +18,13 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 }
 
 /*
-	Operators
-*/
-RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &other) {
-	if (this != &other) {
-		RobotomyRequestForm test(other);
-		return test;
-	}
-	return *this;
-}
-
-/*
 	Other functions
 */
 void RobotomyRequestForm::action() const {
-	std::cout << "Action done" << std::endl;
+	std::cout << "** Drilling noises **" << std::endl;
+	if (rand() % 2 == 1) {
+		std::cout << getTarget() << " has been robotomized!" << std::endl;
+	} else {
+		std::cout << "Operator was a failure." << std::endl;
+	}
 }

@@ -24,7 +24,7 @@ class Form {
 		bool isSigned() const;
 		void execute(Bureaucrat const &executor) const;
 
-		virtual void beSigned(Bureaucrat const &bc);
+		void beSigned(Bureaucrat const &bc);
 
 		/* Highest grade is 1 for some reason */
 		class GradeTooHighException: public std::exception {
@@ -39,6 +39,13 @@ class Form {
 			public:
 				char const *what() const throw() {
 					return "grade too low";
+				}
+		};
+
+		class NotSignedException: public std::exception {
+			public:
+				char const *what() const throw() {
+					return "form not signed";
 				}
 		};
 

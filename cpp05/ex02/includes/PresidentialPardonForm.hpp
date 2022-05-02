@@ -11,8 +11,7 @@ class PresidentialPardonForm: public Form {
 		PresidentialPardonForm(PresidentialPardonForm const &other);
 		~PresidentialPardonForm();
 
-		PresidentialPardonForm &operator=(PresidentialPardonForm const &other);
-
+	private:
 		void action() const;
 };
 

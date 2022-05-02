@@ -18,19 +18,8 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 }
 
 /*
-	Operators
-*/
-PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &other) {
-	if (this != &other) {
-		return new PresidentialPardonForm(other);
-
-	}
-	return *this;
-}
-
-/*
 	Other functions
 */
 void PresidentialPardonForm::action() const {
-	std::cout << "Action done" << std::endl;
+	std::cout << getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }

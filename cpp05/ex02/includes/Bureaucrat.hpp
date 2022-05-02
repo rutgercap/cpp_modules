@@ -23,7 +23,7 @@ class Bureaucrat {
 		void setGrade(int const newGrade);
 		void incrementGrade();
 		void decrementGrade();
-		void signForm(Form const &form) const;
+		void signForm(Form &form) const;
 		void executeForm(Form const &form) const;
 
 		/* Highest grade is 1 for some reason */

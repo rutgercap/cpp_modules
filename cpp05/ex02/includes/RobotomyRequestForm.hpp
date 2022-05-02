@@ -12,6 +12,7 @@ class RobotomyRequestForm: public Form {
 
 		RobotomyRequestForm &operator=(RobotomyRequestForm const &other);
 
+	private:
 		void action() const;
 };
 

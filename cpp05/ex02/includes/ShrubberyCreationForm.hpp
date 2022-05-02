@@ -2,6 +2,7 @@
 # define SHRUBFORM
 
 # include <Form.hpp>
+# include <fstream>
 
 class ShrubberyCreationForm: public Form {
 	public:
@@ -12,6 +13,7 @@ class ShrubberyCreationForm: public Form {
 
 		ShrubberyCreationForm &operator=(ShrubberyCreationForm const &other);
 
+	private:
 		void action() const;
 };
 

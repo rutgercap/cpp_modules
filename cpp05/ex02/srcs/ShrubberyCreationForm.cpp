@@ -18,19 +18,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 }
 
 /*
-	Operators
-*/
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &other) {
-	if (this != &other) {
-		ShrubberyCreationForm test(other);
-		return test;
-	}
-	return *this;
-}
-
-/*
 	Other functions
 */
 void ShrubberyCreationForm::action() const {
-	std::cout << "Action done" << std::endl;
+	std::ofstream	file(getTarget());
+	
+	file << "\n      ###\n     #o###\n   #####o###\n  #o#\\#|#/###\n   ###\\|/#o#\n    # }|{  #\n      }|{\n";
+	file.close();
 }

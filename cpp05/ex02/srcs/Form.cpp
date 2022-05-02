@@ -22,6 +22,7 @@ Form::Form(Form const &other): _name(other._name), _target(other._target),
 
 Form::~Form() {
 }
+
 /*
 	Operators
 */
@@ -81,11 +82,15 @@ void Form::beSigned(Bureaucrat const &bc) {
 	}
 }
 
-void Form::execute(Bureaucrat const &executor) const {
-	if (!isSigned() || getExecGrade() > executor.getGrade()) {
+void Form::execute(Bureaucrat const &bc) const {
+	if (!isSigned()) {
+		throw Form::NotSignedException();
+	}
+	if (getExecGrade() <= bc.getGrade()) {
 		throw Form::GradeTooLowException();
 	} else {
 		action();
+		std::cout << bc.getName() << " performed the action!" << std::endl;
 	}
 }
 
