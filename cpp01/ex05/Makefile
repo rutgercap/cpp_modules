@@ -1,13 +1,13 @@
-NAME		=	karen
+NAME		=	harl
 
 SRCDIR		=	srcs
 SRCS		=	main.cpp \
-				Karen.cpp
+				Harl.cpp
 OBJDIR		=	objs
 OBJS		=	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 INCLUDES	=	includes
 
-CC			=	clang++
+CC			=	c++
 FLAGS		=	-Wall -Werror -Wextra -g -pedantic -I $(INCLUDES) -std=c++98 
 
 all:		$(NAME)
@@ -19,7 +19,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@$(CC) $(FLAGS) -c $< -o $@
 
 run: all
-	./$(NAME) $(ARGS)
+	./$(NAME)
 
 clean:
 	rm -r $(OBJDIR)

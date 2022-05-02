@@ -75,8 +75,5 @@ void Bureaucrat::signForm(Form const &form) const {
 }
 
 void Bureaucrat::executeForm(Form const &form) const {
-	if (_grade > form.getSignGrade()) {
-		throw Bureaucrat::GradeTooLowException();
-	}
-	std::cout << getName() << " signs " << form.getName() << std::endl;
+	form.execute(*this);
 }

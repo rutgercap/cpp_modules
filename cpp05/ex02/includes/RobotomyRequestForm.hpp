@@ -3,14 +3,16 @@
 
 #include <Form.hpp>
 
-class RobotomoyRequestForm: Form {
+class RobotomyRequestForm: public Form {
 	public:
-		RobotomoyRequestForm();
-		RobotomoyRequestForm(RobotomoyRequestForm const &other);
-		~RobotomoyRequestForm();
+		RobotomyRequestForm();
+		RobotomyRequestForm(std::string const &target);
+		RobotomyRequestForm(RobotomyRequestForm const &other);
+		~RobotomyRequestForm();
 
-		RobotomoyRequestForm &operator=(RobotomoyRequestForm const &other);
+		RobotomyRequestForm &operator=(RobotomyRequestForm const &other);
 
+		void action() const;
 };
 
 #endif

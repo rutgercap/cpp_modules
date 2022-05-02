@@ -3,16 +3,16 @@
 
 # include <Form.hpp>
 
-class ShrubberyCreationForm: Form {
+class ShrubberyCreationForm: public Form {
 	public:
 		ShrubberyCreationForm();
+		ShrubberyCreationForm(std::string const &target);
 		ShrubberyCreationForm(ShrubberyCreationForm const &other);
 		~ShrubberyCreationForm();
 
 		ShrubberyCreationForm &operator=(ShrubberyCreationForm const &other);
 
-	private:
-		std::string const target;
+		void action() const;
 };
 
 #endif

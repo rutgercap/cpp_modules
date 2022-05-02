@@ -1,11 +1,13 @@
 #ifndef PRESIDENTFORM
 # define PRESIDENTFORM
 
-# include <form.hpp>
+# include <Form.hpp>
+# include <fstream>
 
-class PresidentialPardonForm: Form {
+class PresidentialPardonForm: public Form {
 	public:
 		PresidentialPardonForm();
+		PresidentialPardonForm(std::string const &target);
 		PresidentialPardonForm(PresidentialPardonForm const &other);
 		~PresidentialPardonForm();
 

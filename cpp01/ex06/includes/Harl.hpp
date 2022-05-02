@@ -1,5 +1,5 @@
-#ifndef KAREN_H
-# define KAREN_H
+#ifndef HARL_H
+# define HARL_H
 
 # include <string>
 
@@ -17,12 +17,12 @@ ERROR,
 OTHER
 } _e_Level;
 
-class Karen {
+class Harl {
 	private:
 		_e_Level	getLevel(std::string level);
 		
 	public:
-		void	karenFilter(std::string level);
+		void	harlFilter(std::string level);
 };
 
 #endif

@@ -8,7 +8,7 @@ OBJDIR		=	objs
 OBJS		=	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 INCLUDES	=	includes
 
-CC			=	clang++
+CC			=	c++
 FLAGS		=	-Wall -Werror -Wextra -pedantic -I $(INCLUDES) -std=c++98 
 
 ARGS		=	5 Kas

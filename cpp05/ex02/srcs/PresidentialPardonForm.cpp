@@ -3,11 +3,15 @@
 /*
 	Constructors / destructors
 */
-PresidentialPardonForm::PresidentialPardonForm(): Form("Presidential pardon form", 25, 5) {
+PresidentialPardonForm::PresidentialPardonForm(): Form("Presidential pardon form", "None", 25, 5) {
+}
+
+PresidentialPardonForm::PresidentialPardonForm(std::string const &target): 
+	Form("Presidential pardon form", target, 25, 5) {
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &other): 
-	Form("Presidential pardon form", 25, 5) {
+	Form(other.getName(), other.getTarget(), 25, 5) {
 }
 
 PresidentialPardonForm::~PresidentialPardonForm() {
@@ -18,7 +22,8 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 */
 PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &other) {
 	if (this != &other) {
-		this->isSigned = other.isSigned;
+		return new PresidentialPardonForm(other);
+
 	}
 	return *this;
 }
@@ -27,5 +32,5 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm
 	Other functions
 */
 void PresidentialPardonForm::action() const {
-	// do action
+	std::cout << "Action done" << std::endl;
 }

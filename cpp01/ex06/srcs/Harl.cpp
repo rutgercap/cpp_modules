@@ -1,7 +1,7 @@
-#include "Karen.hpp"
+#include "Harl.hpp"
 #include <iostream>
 
-e_level	Karen::getLevel(std::string level) {
+e_level	Harl::getLevel(std::string level) {
 	
 	if (!level.compare("DEBUG")) {
 		return DEBUG;
@@ -26,7 +26,7 @@ void	outputMessage(std::string msg) {
 	std::cout << std::endl;
 }
 
-void	Karen::karenFilter(std::string level) {
+void	Harl::harlFilter(std::string level) {
 	e_level	levelEnum = getLevel(level);
 	switch (levelEnum)
 	{

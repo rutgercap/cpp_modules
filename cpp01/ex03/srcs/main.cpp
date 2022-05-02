@@ -30,7 +30,7 @@ void	test_1(void)
 
 void	test_2(void)
 {
-	Weapon        club = Weapon("crude spiked club");
+	Weapon	club = Weapon("crude spiked club");
 
 	HumanB jim("Jim");
 	jim.setWeapon(club);

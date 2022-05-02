@@ -1,9 +1,9 @@
-#ifndef KAREN_H
-# define KAREN_H
+#ifndef HARL_H
+# define HARL_H
 
 # include <string>
 
-class Karen {
+class Harl {
 	private:
 		long	hash(std::string const& str );
 		void   	debug(void);
@@ -15,13 +15,13 @@ class Karen {
 		void	complain( std::string level );
 };
 
-typedef void (Karen::*KarenMemFnc)(void);
+typedef void (Harl::*HarlMemFnc)(void);
 
 typedef struct s_comp
 {
 	std::string	key;
 	long		lvl_hash;
-	KarenMemFnc func;
+	HarlMemFnc func;
 }				t_comp;
 
 #endif

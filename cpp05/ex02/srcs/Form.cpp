@@ -4,23 +4,24 @@
 /*
 	Constructors / destructors
 */
-Form::Form(): _name("None"), _gradeToSign(1), _gradeToExecute(1), _isSigned(false) {
+Form::Form(): _name("None"), _target("None"), _gradeToSign(1), 
+	_gradeToExecute(1), _isSigned(false) {
 }
 
-Form::Form(std::string const &name, int const toSign, int const toExec):
-	_name(name), _gradeToSign(gradePipe(toSign)), 
+Form::Form(std::string const &name, std::string const &target,
+	int const toSign, int const toExec):
+	_name(name), _target(target), _gradeToSign(gradePipe(toSign)), 
 	_gradeToExecute(gradePipe(toExec)), _isSigned(false) {
 }
 
-Form::Form(Form const &other):
-	_name(other._name), _gradeToSign(gradePipe(other._gradeToSign)), 
+Form::Form(Form const &other): _name(other._name), _target(other._target),
+	_gradeToSign(gradePipe(other._gradeToSign)), 
 	_gradeToExecute(gradePipe(other._gradeToExecute)), 
 	_isSigned(other._isSigned) {
 }
 
 Form::~Form() {
 }
-
 /*
 	Operators
 */
@@ -50,6 +51,10 @@ std::string const Form::getName() const {
 	return _name;
 }
 
+std::string const Form::getTarget() const {
+	return _target;
+}
+
 int Form::getSignGrade() const {
 	return _gradeToSign;
 }
@@ -76,8 +81,12 @@ void Form::beSigned(Bureaucrat const &bc) {
 	}
 }
 
-void Form::execute(Bureaucrat const &bc) const {
-
+void Form::execute(Bureaucrat const &executor) const {
+	if (!isSigned() || getExecGrade() > executor.getGrade()) {
+		throw Form::GradeTooLowException();
+	} else {
+		action();
+	}
 }
 
 /* Throws exception if grade is too high or too low */
@@ -88,8 +97,4 @@ int	Form::gradePipe(int const newGrade) {
 		throw Form::GradeTooHighException();
 	}
 	return newGrade;
-}
-
-void Form::actionCheck() {
-	
 }

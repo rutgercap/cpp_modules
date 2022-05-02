@@ -3,6 +3,9 @@ NAME		=	bureaucrat
 SRCDIR		=	srcs
 SRCS		=	main.cpp \
 				Form.cpp \
+				PresidentialPardonForm.cpp \
+				ShrubberyCreationForm.cpp \
+				Form.cpp \
 				Bureaucrat.cpp \
 
 OBJDIR		=	objs

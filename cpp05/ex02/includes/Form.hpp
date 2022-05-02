@@ -10,21 +10,21 @@ class Bureaucrat;
 class Form {
 	public:
 		Form();
-		Form(std::string const &name, int const toSign, int const toExec);
+		Form(std::string const &name, std::string const &target,\
+			int const toSign, int const toExec);
 		Form(Form const &other);
 		~Form();
 
 		Form &operator=(Form const &other);
 
 		std::string const getName() const;
+		std::string const getTarget() const;
 		int getSignGrade() const;
 		int getExecGrade() const;
 		bool isSigned() const;
+		void execute(Bureaucrat const &executor) const;
 
 		virtual void beSigned(Bureaucrat const &bc);
-		virtual void execute(Bureaucrat const & executor) const = 0;
-		void	actionCheck() const;
-		virtual void action() const;
 
 		/* Highest grade is 1 for some reason */
 		class GradeTooHighException: public std::exception {
@@ -44,9 +44,12 @@ class Form {
 
 	private:
 		std::string const _name;
+		std::string const _target;
 		int const _gradeToSign;
 		int	const _gradeToExecute;
 		bool _isSigned;
+		
+		virtual void action() const = 0;
 
 		int gradePipe(int const newGrade);
 };

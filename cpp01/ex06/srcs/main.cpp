@@ -1,11 +1,11 @@
-#include "Karen.hpp"
+#include "Harl.hpp"
 
 int main(void) {
-	Karen	karen;
+	Harl	harl;
 
-	karen.karenFilter("test");
-	karen.karenFilter("INFO");
-	// karen.karenFilter("ERROR");
-	// karen.karenFilter("INFO");
-	// karen.karenFilter("WARNING");
+	harl.harlFilter("test");
+	harl.harlFilter("INFO");
+	// harl.harlFilter("ERROR");
+	// harl.harlFilter("INFO");
+	// harl.harlFilter("WARNING");
 }
