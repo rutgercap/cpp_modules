@@ -48,12 +48,13 @@ std::string	strToLower(std::string const &original) {
 	return lowerString;
 }
 
-Form	*Intern::makeForm(std::string const &form, std::string const &target) const {
+Form	*Intern::makeForm(std::string const &form, std::string const &target) {
 	std::string formLower = strToLower(form);
 	for (int i = 0; i < TABLE_SIZE; i++) {
 		if (table[i].key == formLower) {
-			return (table[i].func)(target)
+			return (this->*(table[i].func))(target);
 		}
 	}
 	std::cout << "Intern doesn't know " << form << std::endl;
+	return nullptr;
 }

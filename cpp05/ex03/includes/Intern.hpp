@@ -15,7 +15,7 @@ class Intern {
 
 		Intern &operator=(Intern const &other);
 
-        Form    *makeForm(std::string const &form, std::string const &target) const;
+        Form    *makeForm(std::string const &form, std::string const &target);
         Form    *makePresForm(std::string const &target);
         Form    *makeShrubForm(std::string const &target);
         Form    *makeRoboForm(std::string const &target);

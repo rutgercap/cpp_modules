@@ -21,7 +21,7 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 	Other functions
 */
 void PresidentialPardonForm::action() const {
-	if (!_isSigned) {
+	if (!isSigned()) {
 		return ;
 	}
 	std::cout << getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;

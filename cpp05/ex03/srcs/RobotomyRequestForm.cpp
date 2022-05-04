@@ -21,7 +21,7 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 	Other functions
 */
 void RobotomyRequestForm::action() const {
-	if (!_isSigned) {
+	if (!isSigned()) {
 		return ;
 	}
 	std::cout << "** Drilling noises **" << std::endl;
