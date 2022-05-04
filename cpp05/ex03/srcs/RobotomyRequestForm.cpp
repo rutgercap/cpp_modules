@@ -21,9 +21,6 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 	Other functions
 */
 void RobotomyRequestForm::action() const {
-	if (!_isSigned) {
-		return ;
-	}
 	std::cout << "** Drilling noises **" << std::endl;
 	if (rand() % 2 == 1) {
 		std::cout << getTarget() << " has been robotomized!" << std::endl;

@@ -21,9 +21,6 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 	Other functions
 */
 void ShrubberyCreationForm::action() const {
-	if (!_isSigned) {
-		return ;
-	}
 	std::ofstream	file(getTarget());
 	
 	file << "\n      ###\n     #o###\n   #####o###\n  #o#\\#|#/###\n   ###\\|/#o#\n    # }|{  #\n      }|{\n";
