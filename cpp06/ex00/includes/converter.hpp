@@ -5,7 +5,8 @@
 # include <iostream>
 # include <iomanip> 
 # include <cfloat>
+# include <cmath>
 
-void	convertInput(const char *input);
+void	scalarConversion(std::string input);
 
 #endif
