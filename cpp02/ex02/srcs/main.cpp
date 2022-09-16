@@ -44,7 +44,8 @@ int	main(void) {
 	arithmetic_tests();
 	std::cout << "------ Comparison tests: ------" << std::endl;
 	comparison_tests();
-	std::cout << "------ Max test: ------" << std::endl;
+	std::cout << "------ Min test: ------" << std::endl;
 	std::cout << Fixed::min( a, b ) << std::endl;
+
 	return 0; 
 }
