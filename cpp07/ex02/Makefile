@@ -1,4 +1,4 @@
-NAME		=	convert
+NAME		=	arrayTemplate
 
 SRCDIR		=	srcs
 SRCS		=	main.cpp 
