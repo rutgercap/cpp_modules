@@ -8,7 +8,11 @@
 class FragTrap: public ClapTrap {
 	public:
 		FragTrap	(std::string const &name);
+		FragTrap	();
+		FragTrap	(const FragTrap &to_copy);
 		~FragTrap	();
+
+		FragTrap	&operator=(const FragTrap &clap);
 		
 		void	attack(std::string const &target);
 		void	takeDamage(unsigned int amount);
