@@ -1,7 +1,8 @@
-NAME		=	casting
+NAME		=	dynamic_casting
 
 SRCDIR		=	srcs
 SRCS		=	main.cpp \
+				Base.cpp
 
 OBJDIR		=	objs
 OBJS		=	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))

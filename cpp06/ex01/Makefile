@@ -1,7 +1,7 @@
-NAME		=	casting
+NAME		=	reinterpret_casting
 
 SRCDIR		=	srcs
-SRCS		=	main.cpp \
+SRCS		=	main.cpp
 
 OBJDIR		=	objs
 OBJS		=	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))

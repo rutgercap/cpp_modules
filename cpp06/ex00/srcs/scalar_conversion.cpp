@@ -40,8 +40,8 @@ static void	convertInt(const long i) {
 	printChar(i);
 	std::cout << "int: " << static_cast<int>(i) << std::endl;
 	std::cout << std::fixed;
-	std::cout << "float: " << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
-	std::cout << "double: " << std::setprecision(1) << static_cast<double>(i) << std::endl;
+	std::cout << "float: " << static_cast<float>(i) << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(i) << std::endl;
 }
 
 static void	convertFloat(const double f) {
@@ -76,8 +76,8 @@ static void printInf(char minus) {
 
 static void	convertDouble(const double d) {
 	std::cout << "Converting double:" << std::endl;
-	std::cout << "float: " << std::setprecision(1) << static_cast<float>(d) << "f" << std::endl;
-	std::cout << "double: " << std::setprecision(1) << static_cast<double>(d) << std::endl;
+	std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(d) << std::endl;
 	if (isInfiniteOrNan(d)) {
 		return ;
 	}
@@ -85,12 +85,28 @@ static void	convertDouble(const double d) {
 	printChar(d);
 }
 
-// Doesn't work with floats now
-static int isAllNumber(std::string input) {
+// Horrible but works
+static int inputCheck(std::string input) {
 	int len = input.length();
+	bool	foundDot = false;
+	bool	foundF = false;
+
 	for (int i = 0; i < len; i++) {
 		if (!isnumber(input[i])) {
-			return 1;
+			if (input[i] == '.') {
+				if (foundDot == true) {
+					return 1;
+				} else {
+					foundDot = true;
+				}
+			}
+			if (input[i] == 'f') {
+				if (foundF == true) {
+					return 1;
+				} else {
+					foundF = true;
+				}
+			}
 		}
 	}
 	return 0;
@@ -102,12 +118,12 @@ void	scalarConversion(std::string input) {
 	double	doubleValue;
 	long	intValue;
 
-	if (!input.compare("nan")) {
+	if (!input.compare("nan") || !input.compare("nanf")) {
 		return printNaN();
 	} else if (!input.compare("-inf") || !input.compare("+inf") ){
 		return printInf(input[0]);
 	}
-	if (isAllNumber(input)) {
+	if (inputCheck(input)) {
 		return inputError();
 	}
 	if (input.length() == 1 && isprint(input[0]) && !isdigit(input[0])){
