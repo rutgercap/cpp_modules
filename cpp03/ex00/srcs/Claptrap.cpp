@@ -17,6 +17,7 @@ ClapTrap::ClapTrap(const ClapTrap &to_copy) {
 	if (this != &to_copy) {
 		*this = to_copy;
 	}
+	announceClapTrap(_name);
 }
 
 ClapTrap::~ClapTrap() {
@@ -28,9 +29,14 @@ ClapTrap::~ClapTrap() {
 	Operators
 */
 ClapTrap &ClapTrap::operator=(const ClapTrap &clap) {
-	if (this != clap) {
-		
+	if (this == &clap) {
+		return *this;
 	}
+	_name = clap._name;
+	_hitpoints = clap._hitpoints;
+	_energyPoints = clap._energyPoints;
+	_attackDamage = clap._attackDamage;
+	return *this;
 }
 
 /*
