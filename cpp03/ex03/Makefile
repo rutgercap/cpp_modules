@@ -11,7 +11,7 @@ OBJS		=	$(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 INCLUDES	=	includes
 
 CC			=	clang++
-FLAGS		=	-Wall -Werror -Wextra -Wno-shadow -pedantic -I $(INCLUDES) -std=c++98 
+FLAGS		=	-Wall -Werror -Wextra -Wno-shadow -pedantic -I $(INCLUDES) -std=c++98 -g
 
 all:		$(NAME)
 $(NAME):	$(OBJS)

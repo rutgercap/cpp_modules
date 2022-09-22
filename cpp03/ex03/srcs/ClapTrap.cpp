@@ -4,23 +4,31 @@ void	announceClapTrap(std::string const &name) {
 	std::cout << "ClapTrap " << name << " ";
 }
 
+/**
+ * 	Constructors / destructors
+ */
 ClapTrap::ClapTrap(std::string const &name, unsigned int hitPoints, unsigned int energyPoints, unsigned int attackDamage):
-	_name(name + "_clap_name"), _hitpoints(hitPoints), _energyPoints(energyPoints), _attackDamage(attackDamage) {
+	_name(name), _hitpoints(hitPoints), _energyPoints(energyPoints), _attackDamage(attackDamage) {
 	announceClapTrap(_name);
 	std::cout << "has been created!" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string const &name):
-	_name(name + "_clap_name"), _hitpoints(10), _energyPoints(10), _attackDamage(10) {
+ClapTrap::ClapTrap():
+	_name("nothing"), _hitpoints(10), _energyPoints(10), _attackDamage(10) {
 	announceClapTrap(_name);
-	std::cout << "has been created!" << std::endl;
+	std::cout << "has been created" << std::endl;
 }
 
-ClapTrap &ClapTrap::operator=(const ClapTrap &original) {
-	if (this != &original) {
-		*this = original;
+ClapTrap::ClapTrap(std::string name)
+	: _name(name), _hitpoints(10), _energyPoints(10), _attackDamage(0) {
+	std::cout << "ClapTrap " << _name << " has been constructed\n";
+}
+
+ClapTrap::ClapTrap(const ClapTrap &to_copy) {
+	if (this != &to_copy) {
+		*this = to_copy;
 	}
-	return *this;
+	announceClapTrap(_name);
 }
 
 ClapTrap::~ClapTrap() {
@@ -28,6 +36,23 @@ ClapTrap::~ClapTrap() {
 	std::cout << "died!" << std::endl;
 }
 
+/*
+	Operators
+*/
+ClapTrap &ClapTrap::operator=(const ClapTrap &clap) {
+	if (this == &clap) {
+		return *this;
+	}
+	_name = clap._name;
+	_hitpoints = clap._hitpoints;
+	_energyPoints = clap._energyPoints;
+	_attackDamage = clap._attackDamage;
+	return *this;
+}
+
+/**
+ * Other
+ */
 void	ClapTrap::attack(std:: string const &target) {
 	announceClapTrap(_name);
 	std::cout << "attacks " << \
@@ -45,4 +70,8 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 	announceClapTrap(_name);
 	std::cout << "is repaired for " << amount << " damage!" << std::endl;
 	_hitpoints += amount;
+}
+
+std::string	ClapTrap::getName() {
+	return _name;
 }

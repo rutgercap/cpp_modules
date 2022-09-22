@@ -7,12 +7,12 @@ void	announceFragTrap(std::string const &name) {
 /**
  * 	Constructors / destructors
  */
-FragTrap::FragTrap(std::string const &name): ClapTrap(name, 100, 50, 20) {
+FragTrap::FragTrap(std::string const &name): ClapTrap(name, 100, 100, 30) {
 	announceFragTrap(_name);
 	std::cout << "has been created!" << std::endl;
 }
 
-FragTrap::FragTrap(): ClapTrap("nothing", 100, 50, 20) {
+FragTrap::FragTrap(): ClapTrap("nothing", 100, 100, 30) {
 	announceFragTrap(_name);
 	std::cout << "has been created!" << std::endl;
 }

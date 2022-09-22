@@ -1,9 +1,14 @@
-#include <DiamondTrap.hpp>
+#include "DiamondTrap.hpp"
 
-int main(void) {
-	DiamondTrap	diamond("barrie");
+int main(){
+	DiamondTrap barrie;
 
-	diamond.attack("harrie");
-	diamond.highFivesGuys();
-	diamond.guardGate();
+	barrie.attack("someone");
+	barrie.whoAmI();
+
+	std::cout << "-----" << std::endl;
+	DiamondTrap Harrie("harrie");
+
+	barrie.attack("someone");
+	barrie.whoAmI();
 }
